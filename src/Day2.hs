@@ -13,7 +13,6 @@ main = do
   print $ solve part2 $ parse input
 
 -- Parsing
-
 parseMaybe :: ReadP a -> String -> a
 parseMaybe parser input =
     case readP_to_S parser input of
@@ -35,7 +34,6 @@ parser = do
   return (low, high, c, str)
 
 -- Solution
-
 part1 :: (Int, Int, Char, String) -> Bool
 part1 (low, high, c, str) = occ >= low && occ <= high
   where occ = length (filter (\x -> x == c) str)
@@ -46,4 +44,3 @@ part2 (i, j, c, str) =
    (fromEnum $ str ^? element (j-1) == Just c)) == 1
 
 solve isValid = length . filter isValid
-
