@@ -3,7 +3,7 @@ module Day1 where
 import Data.List
 
 main = do
-  input <- readFile "../txt/day01"
+  input <- readFile "../input/day01"
   let nums = map read . lines
   print $ part1 (nums input)
   print $ part2 (nums input)
