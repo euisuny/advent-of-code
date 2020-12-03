@@ -8,15 +8,15 @@ import Text.ParserCombinators.ReadP
 
 main = do
   input <- readFile "../input/day02"
-  let parse = map (parseMaybe parser) . lines
+  let parse = map (parseTrunc parser) . lines
   print $ solve part1 $ parse input
   print $ solve part2 $ parse input
 
 -- Parsing
-parseMaybe :: ReadP a -> String -> a
-parseMaybe parser input =
-    case readP_to_S parser input of
-        ((result, _):_) -> result
+parseTrunc :: ReadP a -> String -> a
+parseTrunc parser input =
+  case readP_to_S parser input of
+      ((result, _):_) -> result
 
 natural :: ReadP Int
 natural = read <$> some (satisfy isDigit)

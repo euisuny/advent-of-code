@@ -27,4 +27,3 @@ part1 l = fst pair * snd pair
 part2 :: [Int] -> Int
 part2 l = fst3 trip * snd3 trip * thrd3 trip
   where trip = (filter (\x -> fst3 x + snd3 x + thrd3 x == year) (triples l)) !! 0
-
