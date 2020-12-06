@@ -1,5 +1,6 @@
 module Day6 where
 
+import Control.Monad
 import Data.List
 
 main = do
@@ -8,5 +9,5 @@ main = do
   print $ part1 info
   print $ part2 info
 
-part1 l = sum $ (length . nub) <$> (concat <$> l)
-part2 l = sum $ length <$> foldl1 intersect <$> l
+part1 = sum . ((length . nub) <$>) . (join <$>)
+part2 = sum . ((length <$> foldl1 intersect) <$>)
